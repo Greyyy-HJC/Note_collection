@@ -97,7 +97,7 @@ in which $\hat{O}_{H}$ is projection operator, and
 
 \[ \hat{O}(\vec{y}, t ; z)=\bar{\psi}(z+\vec{y}, t) \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) \psi(\vec{y}, t) \]
 
-therefore, ignore $t$ variables for convenient,
+therefore, {\color{red}ignore $t$ variables first for convenience,}
 
 \[ \text{3pt} = \int d^{3} \vec{x} e^{-i \vec{p} \cdot \vec{x}} \int d^3 \vec{y}\left\langle\Omega\left|\hat{O}_{H}\left(\vec{x}\right) \sum_{H} \int \frac{d^3 \vec{p'}}{(2\pi)^3}  |H_{\vec{p'}}><H_{\vec{p'}}| \hat{O}(\vec{y}; z) \right. \right. \]
     
@@ -136,9 +136,20 @@ In order to get $\text{PDFs}$, we also need 2pt correlation function:
 
 \[ = <\Omega |\hat{O}_{H} (0, t_{\text{sep}})  |H_{\vec{p}}>  <H_{\vec{p}}| \hat{O}_{H}^{\dagger}(0, 0) | \Omega> \]
 
+{\color{red} Pay attention here $|H_{\vec{p}}>$ is a superposition of Hamiltonian operator instead of eigenstate. Therefore, we have the expression below (we did Wick rotation on the lattice, so $it_{M} = t_{E}$ ) }
+
+\[ \text{3pt} = \sum_{m, n} <\Omega |\hat{O}_{H} (0, 0) e^{- \hat{H} t_{\text{sep}}}  |E_n><E_n| e^{\hat{H} t } \hat{O}(0, 0; z) e^{- \hat{H} t} |E_m><E_m| \hat{O}_{H}^{\dagger}(0) | \Omega>  \]
+
+\[ = \sum_{m, n} e^{- E_n t_{\text{sep}}} e^{E_n t } e^{- E_m t} <\Omega |\hat{O}_{H} (0, 0)  |E_n><E_n|  \hat{O}(0, 0; z) |E_m><E_m| \hat{O}_{H}^{\dagger}(0) | \Omega> \]
+
+
+same for 2pt,
+
+\[ \text{2pt} =  \sum_{n} e^{- E_n t_{\text{sep}}} <\Omega |\hat{O}_{H} (0, 0)  |E_n>  <E_n| \hat{O}_{H}^{\dagger}(0, 0) | \Omega>  \]
+
 so,
 
-\[ \frac{\text{3pt}}{\text{2pt}} = \left\langle H_{\vec{p}}|\hat{O}(0,0 ; z)| H_{\vec{p}}\right\rangle\left(1+e^{-\Delta E t}+e^{-\Delta E(t_{\text{sep}}-t)}+e^{-\Delta E t_{s e p}}\right) \]
+\[ \text{PDFs} = \frac{\text{3pt}}{\text{2pt}} = \left\langle H_{\vec{p}}|\hat{O}(0,0 ; z)| H_{\vec{p}}\right\rangle\left(1+e^{-\Delta E t}+e^{-\Delta E(t_{\text{sep}}-t)}+e^{-\Delta E t_{s e p}}\right) \]
 
 
 \subsection{Calculate 3pt on lattice}
@@ -168,13 +179,13 @@ Add trace, then move the $d$ at the end to the beginning. {\color{red} Notice he
 
 \[ \text{3pt} = \int d^{3} \vec{x} e^{-i \vec{p} \cdot \vec{x}} \int d^3 \vec{y} \{ \]
 
-\[ \left\langle\Omega\left| \text{tr}[ S_d(0,0;\vec{x},t_{\text{sep}}) \gamma^{5} S_u(\vec{x},t_{\text{sep}};z+\vec{y},t) \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) S_u(\vec{y},t;0,0) \gamma^{5}  ] \right| \Omega\right\rangle \]
+\[ <\Omega| \text{tr}[ S_d(0,0;\vec{x},t_{\text{sep}}) \gamma^{5} S_u(\vec{x},t_{\text{sep}};z+\vec{y},t) \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) S_u(\vec{y},t;0,0) \gamma^{5}  ] |\Omega> \]
 
-\[ - \left\langle\Omega\left| \text{tr}[ S_d(0,0;\vec{x},t_{\text{sep}}) \gamma^{5} S_u(\vec{x},t_{\text{sep}};0,0) \gamma^{5}] \cdot \text{tr}[ S_u(\vec{y},t;z+\vec{y},t) \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) ] \right| \Omega\right\rangle \} \]
+\[ - <\Omega| \text{tr}[ S_d(0,0;\vec{x},t_{\text{sep}}) \gamma^{5} S_u(\vec{x},t_{\text{sep}};0,0) \gamma^{5}] \cdot \text{tr}[ S_u(\vec{y},t;z+\vec{y},t) \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) ] |\Omega> \} \]
 
 two terms in the integral represent two diagrams, take the first one as an example.
 
-\[ \int d^3 \vec{y} \left\langle\Omega\left| \text{tr}[  \underline{  \int d^{3} \vec{x} {\color{red} e^{-i \vec{p} \cdot \vec{x}} \gamma^{5}  S_d(0,0;\vec{x},t_{\text{sep}}) \gamma^{5} } S_u(\vec{x},t_{\text{sep}};z+\vec{y},t) }  \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) S_u(\vec{y},t;0,0)  ] \right| \Omega\right\rangle \]
+\[ \int d^3 \vec{y} <\Omega| \text{tr}[  \underline{  \int d^{3} \vec{x} {\color{red} e^{-i \vec{p} \cdot \vec{x}} \gamma^{5}  S_d(0,0;\vec{x},t_{\text{sep}}) \gamma^{5} } S_u(\vec{x},t_{\text{sep}};z+\vec{y},t) }  \gamma^{t} W(z+\vec{y}, t ; \vec{y}, t) S_u(\vec{y},t;0,0)  ] |\Omega> \]
 
 in which, red part is sequential source, and the underlined part is sequential propagator.
 
@@ -187,6 +198,8 @@ in which, red part is sequential source, and the underlined part is sequential p
 here we used 
 
 \[ {\color{red} \gamma^5 S^{\dagger}(x;y) \gamma^5 = S(y;x) } \]
+
+*[ Gattringer P136 (6.31)]
 
 the $\dagger$ here acts on spinor and color indices.
 
