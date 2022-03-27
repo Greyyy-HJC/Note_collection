@@ -147,9 +147,24 @@ same for 2pt,
 
 \[ \text{2pt} =  \sum_{n} e^{- E_n t_{\text{sep}}} <\Omega |\hat{O}_{H} (0, 0)  |E_n>  <E_n| \hat{O}_{H}^{\dagger}(0, 0) | \Omega>  \]
 
-so,
+preserve only lowest two energy states, we got
 
-\[ \text{PDFs} = \frac{\text{3pt}}{\text{2pt}} = \left\langle H_{\vec{p}}|\hat{O}(0,0 ; z)| H_{\vec{p}}\right\rangle\left(1+e^{-\Delta E t}+e^{-\Delta E(t_{\text{sep}}-t)}+e^{-\Delta E t_{s e p}}\right) \]
+\[ \text{3pt} \approx z_0^2 O_{00} e^{-E_0 t_{\text{sep}}} + z_0^{\dagger} z_1 O_{01} e^{-E_0 t_{\text{sep}}} e^{- \Delta E t} + z_1^{\dagger} z_0 O_{10} e^{-E_1 t_{\text{sep}}} e^{\Delta E t} + z_1^2 O_{11} e^{- E_1 t_{\text{sep}}} \]
+
+\[ \text{2pt} \approx z_0^2 e^{-E_0 t_{\text{sep}}} + z_1^2 e^{-E_1 t_{\text{sep}}} \]
+
+so, assume $O_{01} = O_{10}$, we have fit function
+
+\[ \frac{\text{3pt}}{\text{2pt}} = O_{00} \cdot [1 + a_1 (e^{- \Delta E (t_{\text{sep}} - t)} + e^{- \Delta E t}) + a_2 e^{- \Delta E t_{\text{sep}}}]  \]
+
+also, the FH fit function is
+
+\[ \text{FH} = O_{00} \cdot [1 + a_1 e^{- \Delta E t_{\text{sep}}} + a_2 \cdot t_{\text{sep}} \cdot e^{- \Delta E t_{\text{sep}}} ]  \]
+
+the $O_{00}$ is PDFs.
+
+
+
 
 
 \subsection{Calculate 3pt on lattice}
